@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+img {
+  width: 100%;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.hidden {
+  display: none;
+}
+
+header {
+  h1 {
+    color: #e50914;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.8em;
+    margin-right: 5px;
+    text-decoration: none;
+    vertical-align: middle;
+    transform: scaleY(1.2);
+    /* Làm cho chữ hơi kéo dài theo chiều ngang */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* mobile */
+@media screen and (max-width:789px) {
+  .menu-items {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  .list-cate {
+    &:hover .menu {
+      display: block;
+    }
+
+    .menu {
+      position: absolute;
+      background-color: black;
+      border-top: 2px solid white;
+      display: none;
+      top: 35px;
+      &::before {
+        position: absolute;
+        content: "▲";
+        color: white;
+        top: -10px;
+        left: 50%;
+        font-size: 1rem;
+        transform: translate(-50%,-50%);
+      }
+      li {
+        text-align: center;
+        white-space: nowrap;
+        padding: 10px;
+        &:hover {
+          background-color: #4e4e4e;
+        }
+      }
+    }
+  }
+
+}
+
+.item {
+  width: calc(100vw/6 - 8px);
+  &:hover {
+    transform: scale(1.5);
+  }
+  &:hover .item-content {
+    display: block;
+  }
+  .item-content {
+    display: none;
   }
 }
